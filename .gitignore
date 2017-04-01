@@ -40,3 +40,4 @@ Procfile
 dist
 _dist
 _templates
+.env
