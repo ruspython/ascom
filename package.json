@@ -1,5 +1,5 @@
 {
-  "name": "soshace",
+  "name": "ascom",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
@@ -14,7 +14,7 @@
     "i18next": "^2.5.1",
     "i18next-browser-languagedetector": "^0.3.0",
     "i18next-express-middleware": "^0.4.0",
-    "keystone": "^0.3.14",
+    "keystone": "^0.3.22",
     "moment": "^2.10.6",
     "nodemailer": "^2.0.0",
     "underscore": "^1.8.3"

@@ -6,16 +6,16 @@ var Types = keystone.Field.Types;
  * ==========
  */
 
-var Developer = new keystone.List('Developer', {
+var Member = new keystone.List('Member', {
 	map: { name: 'name' },
 	autokey: { path: 'slug', from: 'name', unique: true }
 });
 
-Developer.add({
+Member.add({
 	name: {type: String, required: true},
 	photo: {type: Types.CloudinaryImage},
 	position: {type: String},
 	info: {type: Types.Textarea}
 });
 
-Developer.register();
+Member.register();

@@ -1,40 +1,58 @@
-<section id="portfolio" class="portfolio">
-
-  <div class="portfolio__inner">
-
-    <h1 class="portfolio__header">{{t 'portfolio'}}</h1>
-
-    <div class="portfolio__arrow-wrap portfolio__arrow-wrap--left">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="21.706px" height="41.719px" viewBox="0 0 21.706 41.719" enable-background="new 0 0 21.706 41.719" xml:space="preserve">
-        <path class="portfolio__arrow" d="M2.045,20.859L21.458,1.446c0.331-0.331,0.331-0.867,0-1.198c-0.33-0.331-0.867-0.331-1.197,0L0.248,20.261c-0.331,0.33-0.331,0.867,0,1.197l20.013,20.013c0.164,0.165,0.382,0.248,0.599,0.248s0.434-0.083,0.599-0.248c0.331-0.331,0.331-0.867,0-1.198L2.045,20.859z"/>
-      </svg>
-    </div>
-
-    <div class="portfolio__arrow-wrap portfolio__arrow-wrap--right">
-      <svg class="portfolio__arrow" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="21.706px" height="41.719px" viewBox="0 0 21.706 41.719" enable-background="new 0 0 21.706 41.719" xml:space="preserve">
-        <path d="M19.661,20.859L0.248,1.446c-0.331-0.331-0.331-0.867,0-1.198c0.33-0.331,0.867-0.331,1.197,0l20.013,20.012c0.33,0.33,0.33,0.867,0,1.197L1.445,41.471c-0.164,0.165-0.382,0.248-0.599,0.248s-0.434-0.083-0.599-0.248c-0.331-0.331-0.331-0.867,0-1.198L19.661,20.859z"/>
-      </svg>
-    </div>
-
-    <div class="portfolio__slider">
-
-      {{#each projects}}
-      <div class="portfolio__slide">
-
-        <a href="#" data-title="{{{name}}}" data-complete-description="{{completeDescription}}" data-incomplete-description="{{incompleteDescription}}" data-link="{{{demoUrl}}}" data-image="{{{image.url}}}">
-          <img src="{{{image.url}}}" width="280" alt="Project Image">
-          <div class="portfolio__project-info">
-            <h2 class="portfolio__project-name">{{{name}}}</h2>
-            <p class="portfolio__project-description">{{{incompleteDescription}}}</p>
-            <span class="portfolio__project-more">Details</span>
-          </div>
-        </a>
-
+<!-- Portfolio Grid Section -->
+<section id="portfolio" class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Портфолио</h2>
+        <h3 class="section-subheading text-muted">Наши работы</h3>
       </div>
-      {{/each}}
-
     </div>
-
+    <div class="row">
+      {{#each projects}}
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fa fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img src="{{{previewImage.url}}}" class="img-responsive" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>{{{name}}}</h4>
+            <p class="text-muted">{{{category}}}</p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
   </div>
-
 </section>
+
+{{#each projects}}
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2>{{{name}}}</h2>
+                <p class="item-intro text-muted">{{{shortInfo}}}</p>
+                <img class="img-responsive img-centered" src="{{{image.url}}}" alt="">
+                <p>{{{fullInfo}}}</p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/each}}
