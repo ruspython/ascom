@@ -1,0 +1,155 @@
+//
+//
+// Styles for main footer
+
+.main-footer {
+  position: relative;
+  z-index: 6;
+  padding: 20px 0;
+  background: white;
+  color: black;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: $font-stack;
+  transition: padding 0.3s ease;
+
+  &__adress-line-1 {
+    margin: 0;
+    margin-bottom: 5px;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: $weight-bold;
+  }
+
+  &__adress-line-2 {
+    margin: 0;
+    margin-bottom: 5px;
+
+    font-size: $font-size;
+    line-height: $line-height - 5px;
+    font-weight: $weight-light;
+  }
+
+  &__links {
+    margin: 0;
+  }
+
+  &__links a::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -28px;
+
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+    width: 23px;
+    height: 23px;
+    background-size: 23px 23px;
+  }
+
+  &__links a {
+    position: relative;
+    color: black;
+    text-decoration: none;
+
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px 20px;
+    left: 23px;
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: $weight-light;
+    color: black
+  }
+
+  &__skype-link::before {
+    background-image: url('../images/logo-skype.svg');
+  }
+
+  &__github-link::before {
+    background-image: url('../images/logo-github.svg');
+  }
+
+  &__facebook-link::before {
+    background-image: url('../images/logo-facebook.svg');
+  }
+
+  &__instagram-link::before {
+    background-image: url('../images/logo-instagram.svg');
+  }
+
+  &__mail-link::before {
+    background-image: url('../images/logo-mail.svg');
+  }
+}
+
+a.main-footer__upwork-link::before {
+  background-image: url('../images/logo-upwork.png'); // img 23x16
+  background-size: 23px 16px;
+  top: 4px;
+}
+
+@media (min-width: $screen_md) {
+  .main-footer{
+    padding: 30px 0;
+    transition: padding 0.3s ease;
+
+    &__adress-line-1 {
+      margin-bottom: 7px;
+
+      font-size: $font-size + 2px;
+      line-height: $line-height + 8px;
+    }
+
+    &__adress-line-2 {
+      margin-bottom: 10px;
+      font-size: $font-size + 2px;
+    }
+
+    &__links a::before {
+      top: -2px;
+    }
+
+    &__links a {
+      margin-bottom: 7px;
+      font-size: $font-size + 2px;
+    }
+  }
+
+  a.main-footer__upwork-link::before {
+    top: 3px;
+  }
+}
+
+@media (min-width: $screen_lg) {
+  .main-footer{
+    padding: 40px 0;
+    transition: padding 0.3s ease;
+
+    &__adress-line-1 {
+      margin-bottom: 20px;
+      font-size: $font-size + 8px;
+    }
+
+    &__adress-line-2 {
+      margin-bottom: 20px;
+      font-size: $font-size + 8px;
+    }
+
+    &__links a::before {
+      top: -1px;
+    }
+
+    &__links a {
+      margin-bottom: 20px;
+      margin-left: 30px;
+      margin-right: 30px;
+      font-size: $font-size + 8px;
+    }
+  }
+  a.main-footer__upwork-link::before {
+    top: 3px;
+  }
+}

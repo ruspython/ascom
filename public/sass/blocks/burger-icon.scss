@@ -1,0 +1,33 @@
+//
+//
+// Styles for SVG hamburger icon
+
+.burger-icon {
+  user-select: none;
+}
+
+.burger-icon__open {
+  display: inline;
+  animation: appear 0.3s;
+}
+
+.burger-icon__open--hidden {
+  display: none;
+}
+
+.burger-icon__close--hidden {
+  display: none;
+  opacity: 0;
+}
+
+.burger-icon__close {
+  display: inline;
+  margin-right: 10px;
+  opacity: 1;
+  animation: reverse-appear 0.3s;
+}
+
+.burger-icon:active .burger-icon__part {
+  fill: $green-color;
+  transition: fill 0.3s;
+}

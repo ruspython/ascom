@@ -1,0 +1,19 @@
+<section id="services" class="features">
+
+  <div class="features__inner">
+
+    <h1 class="features__header">{{t 'services'}}</h1>
+
+    {{#each features}}
+    <div class="features__item">
+
+      <img src="{{{image.url}}}" height="85" alt="Feature Image">
+      <h2 class="features__title">{{{name}}}</h2>
+      <p class="features__text">{{{description}}}</p>
+
+    </div>
+    {{/each}}
+
+  </div>
+
+</section>

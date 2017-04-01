@@ -1,0 +1,33 @@
+//
+//
+// Typography
+$font-stack:  'Roboto', sans-serif;
+$font-size:   14px;
+$line-height: 22px;
+
+$h1-size:        $font-size + 31px;   // 45
+$h1-line-height: $line-height + 26px; // 48
+$h2-size:        $font-size + 18px;   // 32
+$h2-line-height: $line-height + 16px; // 38
+
+$weight-thin:   100;
+$weight-light:  300;
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-bold:   700;
+
+//
+//
+// Colors from logo
+$blue-color:   #4a77da;
+$orange-color: #feba00;
+$green-color:  #70b701;
+
+//
+//
+// Viewport size
+$screen_md: 568px;
+$screen_md-extra: 700px;
+$screen_lg: 960px;
+$screen_xl: 1200px;
+$screen_xl-extra: 1500px;

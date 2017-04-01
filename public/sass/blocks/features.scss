@@ -1,0 +1,160 @@
+//
+//
+// Styles for features block
+
+.features {
+  position: relative;
+  padding-top: 70px;
+  padding-bottom: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  background: white;
+  color: black;
+  transition: padding 0.3s ease, margin 0.3s ease;
+
+  &__inner {
+    @include container();
+  }
+
+  &__header {
+    margin: 0;
+    margin-bottom: 65px;
+
+    font-size: $h1-size - 5px;
+    line-height: $h1-line-height;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    text-transform: uppercase;
+    color: black;
+    transition: font-size 0.3s ease, margin 0.3s ease;
+  }
+
+  &__item {
+    margin-bottom: 60px;
+  }
+
+  &__item:last-child {
+    margin-bottom: 0;
+  }
+
+  &__item img {
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 10px;
+
+    font-size: $h2-size - 12px;
+    line-height: $h2-line-height - 14px;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    transition: font-size 0.3s ease;
+  }
+
+  &__text {
+    margin: 0;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    transition: font-size 0.3s ease;
+  }
+}
+
+@media (min-width: $screen_md) {
+  .features {
+    padding-top: 80px;
+    padding-bottom: 60px;
+    transition: padding 0.3s ease, margin 0.3s ease;
+
+  &__header {
+    margin-bottom: 80px;
+  }
+
+    &__inner {
+      @include container--tablet();
+      @include clearfix();
+    }
+
+    &__item {
+      float: left;
+      width: 45%;
+      margin-right: 10%;
+      margin-bottom: 100px;
+    }
+
+    &__item:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    // &__item:nth-last-child(2),
+    // &__item:last-child {
+    //   margin-bottom: 40px;
+    // }
+
+    &__item:last-child {
+      margin-left: 25%;
+      margin-right: 0;
+    }
+
+    &__title {
+      font-size: $h2-size - 10px;
+      line-height: $h2-line-height - 10px;
+      transition: font-size 0.3s ease;
+    }
+
+    &__text {
+      font-size: $font-size + 2px;
+      line-height: $line-height + 3px;
+      transition: font-size 0.3s ease;
+    }
+  }
+}
+
+@media (min-width: $screen_lg) {
+  .features {
+    padding-top: 110px;
+    padding-bottom: 80px;
+    transition: padding 0.3s ease, margin 0.3s ease;
+
+    &__header {
+      margin-bottom: 110px;
+    }
+
+    &__inner {
+      @include container--desktop();
+    }
+
+    &__item {
+      width: 30%;
+      margin-right: 5%;
+    }
+
+    &__item:nth-child(2n) {
+      margin-right: 5%;
+    }
+
+    &__item:last-child {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    &__item:nth-last-child(3) {
+      margin-bottom: 40px;
+    }
+
+    &__title {
+      font-size: $h2-size - 7px;
+      line-height: $h2-line-height;
+      transition: font-size 0.3s ease;
+    }
+
+    &__text {
+      font-size: $font-size + 4px;
+      line-height: $line-height + 6px;
+      transition: font-size 0.3s ease;
+    }
+  }
+}

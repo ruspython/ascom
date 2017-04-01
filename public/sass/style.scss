@@ -1,0 +1,37 @@
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+@import 'base';
+
+@import '../../node_modules/slick-carousel/slick/slick.scss';
+@import '../../node_modules/slick-carousel/slick/slick-theme.scss';
+
+@import 'blocks/main-header';
+@import 'blocks/burger-icon';
+@import 'blocks/main-nav';
+
+@import 'blocks/intro';
+
+@import 'blocks/features';
+
+@import 'blocks/skills';
+
+@import 'blocks/portfolio';
+
+@import 'blocks/contact';
+
+@import 'blocks/team';
+
+@import 'blocks/testimonial';
+
+@import 'blocks/funfacts';
+
+@import 'blocks/map';
+
+@import 'blocks/main-footer';
+
+@import 'blocks/flying-btn';
+
+@import 'special';
+
+@import 'animations';

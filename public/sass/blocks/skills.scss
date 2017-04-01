@@ -1,0 +1,189 @@
+//
+//
+// Stylef for skills block
+
+.skills {
+  padding-top: 100px;
+  position: relative;
+  text-align: center;
+  background: $orange-color;
+  color: white;
+  text-transform: uppercase;
+  transition: padding 0.3s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    height: 30px;
+    background-image: url('../images/triangle-white.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 30px;
+    transition: height 0.3s ease, background-size 0.3s ease;
+  }
+
+  &__inner {
+    @include container();
+  }
+
+  &__header {
+    margin: 0;
+    margin-bottom: 70px;
+
+    font-size: $h1-size - 5px;
+    line-height: $h1-line-height;
+    font-family: $font-stack;
+    font-weight: $weight-bold;
+    transition: font-size 0.3s ease, margin 0.3s ease;
+  }
+
+  &__item {
+    margin-bottom: 80px;
+    text-align: center;
+  }
+
+  &__item:last-child {
+    padding-bottom: 50px;
+    margin-bottom: 0;
+  }
+
+  &__item img {
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 10px;
+
+    font-size: $h2-size - 12px;
+    line-height: $h2-line-height - 14px;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    transition: font-size 0.3s ease;
+
+  }
+
+  &__text {
+    margin: 0;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    transition: font-size 0.3s ease;
+  }
+}
+
+@media (min-width: $screen_md) {
+  .skills {
+    padding-top: 110px;
+    transition: padding 0.3s ease;
+
+    &__inner {
+      @include container--tablet();
+      @include clearfix();
+    }
+
+    &__header {
+      margin-bottom: 80px;
+      font-size: $h1-size;
+      transition: font-size 0.3s ease, margin 0.3s ease;
+    }
+
+    &__item {
+      float: left;
+      width: 45%;
+      margin-right: 10%;
+    }
+
+    &__item:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    &__item:nth-last-child(2),
+    &__item:last-child {
+      margin-bottom: 60px;
+      padding-bottom: 0;
+    }
+
+    &__title {
+      font-size: $h2-size - 10px;
+      line-height: $h2-line-height - 10px;
+      transition: font-size 0.3s ease;
+    }
+
+    &__text {
+      margin: 0;
+
+      font-size: $font-size + 2px;
+      line-height: $line-height + 3px;
+      transition: font-size 0.3s ease;
+    }
+  }
+}
+
+@media (min-width: $screen_lg) {
+  .skills {
+    padding-top: 175px;
+    transition: padding 0.3s ease;
+
+    &::before {
+      height: 65px;
+      background-size: 100% 65px;
+      transition: height 0.3s ease, background-size 0.3s ease;
+    }
+
+    &__inner {
+      @include container--desktop();
+    }
+
+    &__header {
+      margin-bottom: 110px;
+      transition: margin 0.3s ease;
+    }
+
+    &__item {
+      width: 20%;
+      margin-right: 6%;
+      margin-bottom: 180px;
+    }
+
+    &__item:nth-child(2n) {
+      margin-right: 6%;
+    }
+
+    &__item:nth-child(4n) {
+      margin-right: 0;
+    }
+
+    &__item:nth-last-child(4),
+    &__item:nth-last-child(3),
+    &__item:nth-last-child(2),
+    &__item:last-child {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+    }
+
+    &__item:nth-child(2),
+    &__item:nth-child(3),
+    &__item:nth-child(6),
+    &__item:nth-child(7) {
+      padding-top: 60px;
+    }
+
+    &__title {
+      font-size: $h2-size - 7px;
+      line-height: $h2-line-height;
+      transition: font-size 0.3s ease;
+    }
+
+    &__text {
+      font-size: $font-size + 4px;
+      line-height: $line-height + 6px;
+      transition: font-size 0.3s ease;
+    }
+  }
+}

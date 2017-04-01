@@ -1,0 +1,134 @@
+//
+//
+// Layout for main header
+
+.main-header {
+  background: white;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  //animation: moving-top 0.4s;
+  transition: top 0.2s ease-in-out;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 5px;
+
+    background: url('../images/colorline.png') 100% 100%;
+  }
+
+  &--hidden {
+    // animation: moving-top-reverse 0.4s;
+    // transform: translateY(-2500px);
+    // opacity: 0;
+    top: -90px;
+  }
+
+  &__inner {
+    @include container();
+    @include clearfix();
+    position: relative;    // Absolute element inside (.main-nav--visible)
+    transition: padding 0.3s ease;
+  }
+
+  // &__inner--menu-visible {
+  //   border-bottom: 1px solid #f7f7f7;
+  // }
+
+  &__logo-wrap {
+    float: left;
+    padding-right: 15px;
+    transition: all 0.3s ease;
+  }
+
+  &__logo-wrap a {
+    display: block;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  &__logo-wrap img{
+    width: 134px;
+    height: 35px;
+    transition: width 0.3s ease, height 0.3s ease;
+  }
+
+  &__toggle-wrap {
+    float: right;
+    max-width: 25%;
+  }
+
+  &__toggle-wrap a {
+    display: block;
+    width: 100%;
+    padding: 30px 5px 10px 20px;
+  }
+
+  .language-select {
+    float: left;
+
+    @media (max-width: $screen_md) {
+      width: 60px;
+      padding: 0 2px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+  }
+}
+
+@media (min-width: $screen_md) {
+  .main-header {
+
+    &__inner {
+      @include container--tablet();
+      transition: padding 0.3s ease;
+    }
+
+    &__logo-wrap img{
+      width: 154px;
+      height: 41px;
+      transition: width 0.3s ease, height 0.3s ease;
+    }
+
+    // &__logo-wrap a {
+    //   padding-top: 30px;
+    //   padding-bottom: 15px;
+    // }
+    //
+    // &__toggle-wrap a {
+    //   padding: 40px 5px 30px 30px;
+    // }
+  }
+}
+
+@media (min-width: $screen_lg) {
+  .main-header {
+
+    &__inner {
+      @include container--desktop();
+      padding-top: 5px;
+      padding-bottom: 5px;
+      transition: padding 0.3s ease;
+    }
+
+    // &__logo-wrap a {
+    //   padding-top: 20px;
+    //   padding-bottom: 10px;
+    // }
+
+    &__logo-wrap {
+      width: 200px;
+    }
+
+    &__toggle-wrap {
+      display: none;
+    }
+  }
+}

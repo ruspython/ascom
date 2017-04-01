@@ -1,0 +1,19 @@
+<section id="skills" class="skills">
+
+  <h1 class="skills__header">{{t 'skills'}}</h1>
+
+  <div class="skills__inner">
+
+    {{#each skills}}
+    <div class="skills__item">
+
+      <img src="{{image.url}}" width="90" height="103" alt="Skills Image" />
+      <h2 class="skills__title">{{name}}</h2>
+      <p class="skills__text">{{description}}</p>
+
+    </div>
+    {{/each}}
+
+  </div>
+
+</section>

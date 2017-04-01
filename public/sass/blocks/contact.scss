@@ -1,0 +1,353 @@
+//
+//
+// Styles for contact form
+
+.contact {
+  position: relative;
+  padding-top: 70px;
+  padding-bottom: 50px;
+  background: #e4e2e2;
+  background: #ebebeb;
+  transition: padding 0.3s ease;
+
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  &__inner {
+    @include container();
+    padding: 0 2%;
+    text-align: center;
+  }
+
+  &__header {
+    margin: 0;
+    margin-bottom: 20px;
+
+    font-size: $h1-size - 5px;
+    line-height: $h1-line-height;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    text-transform: uppercase;
+    color: #2e5fb2;
+    transition: margin 0.3s ease, font-size 0.3s ease;
+  }
+
+  &__text {
+    position: relative;
+    padding: 5px 0;
+    margin: 0 auto;
+    margin-bottom: 18px;
+    width: 95%;
+    background: #2fbdff;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    color: white;
+    transition: width 0.3s ease, margin 0.3s ease;
+  }
+
+  &__form {
+    position: relative;
+    width: 85%;
+    padding: 40px 5%;
+    padding-top: 15px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    background: white;
+    transition: width 0.3s ease, padding 0.3s ease;
+  }
+
+  &__form input[type=text],
+  &__form input[type=email],
+  &__form textarea {
+    // Remove shadows in iOS
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    display: block;
+    padding: 8px 10px;
+    padding-right: 25px;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 6px;
+
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    border-radius: 0;
+    box-shadow: none;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: $weight-normal;
+    font-family: $font-stack;
+    color: #404040;
+  }
+
+  &__form textarea {
+    resize: none;
+    height: 120px;
+  }
+
+  &__form input[type=text]:hover,
+  &__form input[type=email]:hover,
+  &__form textarea:hover {
+    background: #f7f7f7;
+  }
+
+  &__form input[type=submit] {
+    display: block;
+
+    width: 100%;
+    padding: 10px 0;
+
+    font-size: $font-size - 1px;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    border-radius: 0;
+    background: #e9ab00;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__form input[type=submit]:hover {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  &__form input[type=submit]:active {
+    background: #f1b204;
+  }
+
+  &__form input[type=submit]:disabled {
+    background: grey;
+  }
+
+  &__form input[type=submit]:disabled:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  &__flash-message {
+    margin-bottom: 20px;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    color: white;
+  }
+
+  &__flash-message-success {
+    padding: 10px;
+    background: green;
+    background: rgba(14, 174, 37, 0.6);
+    animation: fadein 1s;
+  }
+
+  &__flash-message-fail {
+    padding: 10px;
+    background: red;
+    background: rgba(255, 0, 0, 0.6);
+    animation: fadein 1s;
+  }
+
+  &__form-field {
+    position: relative;
+  }
+
+  &__tooltip-info {
+    display: none;
+    line-height: 20px;
+    margin-bottom: 20px;
+
+    font-family: $font-stack;
+    font-size: 16px;
+    text-align: left;
+    color: red;
+    background: white;
+    z-index: 9999;
+  }
+
+  &__tooltip-icon {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(data:image/png;base64,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);
+  }
+}
+
+@media (min-width: $screen_md) {
+  .contact {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    transition: padding 0.3s ease;
+
+    &__inner {
+      @include container--tablet();
+    }
+
+    &__header {
+      margin-bottom: 30px;
+      font-size: $h1-size;
+      transition: margin 0.3s ease, font-size 0.3s ease;
+    }
+
+    &__text {
+      width: 95%;
+      font-size: $font-size + 2px;
+      transition: width 0.3s ease, margin 0.3s ease;
+    }
+
+    &__text::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: -10px;
+
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 32px solid #2fbdff;
+    }
+
+    &__text::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: -10px;
+
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 32px solid #2fbdff;
+    }
+
+    &__form {
+      position: relative;
+      width: 75%;
+      padding: 50px 10%;
+      padding-top: 25px;
+      transition: width 0.3s ease, padding 0.3s ease;
+    }
+
+    &__form input[type=text],
+    &__form input[type=email],
+    &__form textarea {
+      padding: 10px 15px;
+      padding-right: 25px;
+
+      font-size: $font-size + 1px;
+      line-height: $line-height + 1px;
+    }
+
+    &__form textarea {
+      height: 150px;
+    }
+
+    &__form input[type=submit] {
+      padding: 15px 60px;
+      font-size: $font-size + 4px;
+    }
+
+    &__tooltip-icon {
+      top: 12px;
+    }
+
+    &__tooltip-info {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+@media (min-width: $screen_lg) {
+  .contact {
+    padding-top: 110px;
+    padding-bottom: 110px;
+    transition: padding 0.3s ease;
+
+    &__inner {
+      @include container--desktop();
+    }
+
+    &__header {
+      margin-bottom: 60px;
+      transition: margin 0.3s ease;
+    }
+
+    &__text {
+      width: 75%;
+      transition: width 0.3s ease, margin 0.3s ease;
+    }
+
+    &__form {
+      position: relative;
+      width: 65%;
+      padding: 5%;
+      padding-top: 25px;
+      font-size: 0;
+      vertical-align: top;
+      transition: width 0.3s ease, padding 0.3s ease;
+    }
+
+    &__form input[type=text],
+    &__form input[type=email],
+    &__form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px 10px 15px 10px;
+      padding-right: 25px;
+
+      font-size: $font-size + 2px;
+      line-height: $line-height + 2px;
+    }
+
+    &__form textarea {
+      height: 250px;
+    }
+
+    &__form input[type=submit] {
+      padding: 20px 120px;
+    }
+
+    &__tooltip-icon {
+      top: 15px;
+    }
+
+    &__tooltip-info {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media (min-width: $screen_lg) {
+    &__form {
+      padding-top: 35px;
+    }
+}
+
+.notvalid {
+  outline: 2px solid #ff8f8f;
+}

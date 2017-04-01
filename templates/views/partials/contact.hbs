@@ -1,0 +1,35 @@
+<section class="contact">
+  <div class="contact__inner">
+
+    <h1 class="contact__header" id="contact">{{t 'have any questions'}}?</h1>
+    <p class="contact__text">{{ t 'Leave your message and our manager will answer you'}}</p>
+
+    <form class="contact__form" method="post" novalidate>
+
+        <div class="contact__form-field">
+            <input type="text" name="name" placeholder="{{t 'Name'}}">
+            <span class="contact__tooltip-icon" data-for="name"></span>
+            <div class="contact__tooltip-info" data-for="name">{{t 'Name must contain at least 2 characters'}}</div>
+        </div>
+
+        <div class="contact__form-field">
+            <input type="email" name="email" placeholder="{{t 'E-mail'}}">
+            <span class="contact__tooltip-icon" data-for="email"></span>
+            <div class="contact__tooltip-info" data-for="email">{{t 'Not valid email address'}}</div>
+        </div>
+
+        <div class="contact__form-field">
+            <textarea name="message" placeholder="{{t 'Message'}}"></textarea>
+            <span class="contact__tooltip-icon" data-for="message"></span>
+            <div class="contact__tooltip-info" data-for="message">{{t 'Message must contain at least 8 characters'}}</div>
+        </div>
+
+      <div class="contact__flash-message">
+        <div class="contact__flash-message-success invisible">{{t 'Message was successfully sent'}}</div>
+        <div  class="contact__flash-message-fail invisible">{{t 'Some problems with your request. Check your name, email and message for non-standard characters.'}}</div>
+      </div>
+      <input type="submit" value="{{t 'send request'}}">
+    </form>
+
+  </div>
+</section>

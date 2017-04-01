@@ -1,0 +1,14 @@
+.fixed {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+}
+
+.invisible {
+  display: none;
+}
+
+.soft-invisible {
+  visibility: hidden;
+}

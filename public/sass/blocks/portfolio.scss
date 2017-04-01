@@ -1,0 +1,407 @@
+//
+//
+// Styles for portfolio block
+
+.portfolio {
+  padding-top: 100px;
+  padding-bottom: 90px;
+  position: relative;
+  text-align: center;
+  background: white;
+  transition: padding 0.3s ease, margin 0.3s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    height: 30px;
+    background-image: url('../images/triangle-orange.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 30px;
+    transition: height 0.3s ease, background-size 0.3s ease;
+  }
+
+  &__inner {
+    @include container();
+    padding: 0 3%;
+  }
+
+  &__header {
+    margin: 0;
+    margin-bottom: 50px;
+
+    font-size: $h1-size - 5px;
+    line-height: $h1-line-height;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    text-transform: uppercase;
+    color: #2e5fb2;
+    transition: font-size 0.3s ease, margin 0.3s ease;
+  }
+
+  &__slider {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 95%;
+    height: 240px;
+    overflow: hidden;
+    transition: margin 0.3s ease, height 0.3s ease;
+  }
+
+  &__slide {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    text-align: center;
+    transition: margin 0.3s ease, height 0.3s ease;
+  }
+
+  &__slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__project-info {
+    padding: 10px;
+    width: 100%;
+    height: 68px;
+    text-align: left;
+
+    position: absolute;
+    z-index: 6;
+    left: 0;
+    bottom: 0;
+    background: rgba(112, 183, 1, 0.9);
+    color: white;
+    transition: 0.5s ease-out;
+  }
+
+  &__slide:nth-child(2n) &__project-info {
+    background: rgba(74, 119, 218, 0.9);
+  }
+
+  &__project-name {
+    margin: 0;
+    margin-bottom: 3px;
+
+    font-size: $font-size + 1px;
+    line-height: $line-height - 7px;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    text-transform: uppercase;
+  }
+
+  &__project-description {
+    width: 95%;
+    margin: 0;
+
+    font-size: $font-size;
+    line-height: $line-height - 3px;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+  }
+
+  &__project-more {
+    position: absolute;
+    top: 7px;
+    right: 34px;
+    font-size: $font-size;
+    line-height: $line-height - 3px;
+    font-family: $font-stack;
+    font-weight: $weight-bold;
+    text-decoration: underline;
+  }
+
+  &__arrow-wrap {
+    display: block;
+    position: absolute;
+    bottom: -15px;
+    width: 70px;
+    height: 60px;
+    z-index: 9;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__arrow-wrap--left {
+    left: 25%;
+  }
+
+  &__arrow-wrap--right {
+    right: 25%;
+  }
+
+  &__arrow {
+    fill: #68cfff;
+  }
+
+  &__arrow-wrap:hover .portfolio__arrow {
+    fill: $blue-color;
+  }
+
+  &__arrow-wrap:active .portfolio__arrow {
+    fill: #a7dcf5;
+  }
+
+  &__modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  &__modal-close {
+    position: fixed;
+    z-index: 11;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  &__modal-content {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 5%;
+  }
+
+  &__modal-title {
+    margin: 0;
+    margin-bottom: 10px;
+
+    font-size: $h2-size - 15px;
+    line-height: $h1-line-height - 28;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    text-transform: uppercase;
+    color: $orange-color;
+    text-align: left;
+  }
+
+  &__modal-description {
+    margin: 0;
+    margin-bottom: 10px;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    color: white;
+    text-align: left;
+  }
+
+  &__modal-link {
+    display: block;
+    margin-bottom: 10px;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    color: $orange-color;
+  }
+
+  &__modal-link:hover {
+    color: red;
+  }
+
+  &__modal-img {
+    width: 90%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: $screen_md) {
+  .portfolio {
+    padding-top: 110px;
+    padding-bottom: 80px;
+    transition: padding 0.3s ease, margin 0.3s ease;
+
+
+    &__inner {
+      @include container--tablet();
+    }
+
+    &__header {
+      margin-bottom: 80px;
+      font-size: $h1-size;
+      transition: font-size 0.3s ease, margin 0.3s ease;
+    }
+
+    &__slider {
+      margin-bottom: 10px;
+      width: 75%;
+      height: 290px;
+      transition: margin 0.3s ease, height 0.3s ease;
+    }
+
+    &__slide {
+      height: 290px;
+      transition: margin 0.3s ease, height 0.3s ease;
+    }
+
+    &__project-info {
+      padding: 13px;
+      width: 70%;
+      height: 122px;
+    }
+
+    &__project-name {
+      margin-bottom: 5px;
+
+      font-size: $font-size + 2px;
+      line-height: $line-height - 6px;
+    }
+
+    &__project-description {
+      font-size: $font-size + 1px;
+      line-height: $line-height;
+    }
+
+    &__arrow-wrap {
+      bottom: 33%;
+    }
+
+    &__arrow-wrap--left {
+      left: 1%;
+    }
+
+    &__arrow-wrap--right {
+      right: 1%;
+    }
+
+    &__modal-close {
+      top: 30px;
+      right: 30px;
+    }
+
+    &__modal-content {
+      top: 25px;
+    }
+
+    &__modal-title {
+      margin-bottom: 20px;
+      font-size: $h2-size - 10px;
+    }
+
+    &__modal-description {
+      margin-bottom: 20px;
+      font-size: $font-size + 5px;
+      line-height: $line-height + 5px;
+    }
+
+    &__modal-link {
+      margin-bottom: 30px;
+      font-size: $font-size + 5px;
+    }
+  }
+}
+
+@media (min-width: $screen_lg) {
+  .portfolio {
+    padding-top: 175px;
+    padding-bottom: 80px;
+    transition: padding 0.3s ease, margin 0.3s ease;
+
+    &::before {
+      height: 65px;
+      background-size: 100% 65px;
+      transition: height 0.3s ease, background-size 0.3s ease;
+    }
+
+    &__header {
+      margin-bottom: 110px;
+    }
+
+    &__inner {
+      @include container--desktop();
+    }
+
+    &__slider {
+      width: 80%;
+      height: 350px;
+      transition: height 0.3s ease;
+    }
+
+    &__slide {
+      width: 47%;
+      height: 350px;
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+      margin-bottom: 2%;
+      transition: margin 0.3s ease, height 0.3s ease;
+    }
+
+    &__project-info {
+      height: 130px;
+      background: rgba(112, 183, 1, 0.8);
+    }
+
+    &__slide:nth-child(2n) &__project-info {
+      background: rgba(74, 119, 218, 0.8);
+    }
+
+    &__project-description {
+      font-size: $font-size + 2px;
+      line-height: $line-height - 2px;
+    }
+
+    &__arrow-wrap {
+      bottom: 33%;
+    }
+
+    &__arrow-wrap--left {
+      left: 1%;
+    }
+
+    &__arrow-wrap--right {
+      right: 2%;
+    }
+
+    &__slide:hover &__project-info {
+      background: $green-color;
+    }
+
+    &__slide:hover:nth-child(2n) &__project-info {
+      background: $blue-color;
+    }
+
+    &__modal-content {
+      top: 40px;
+    }
+
+    &__modal-close {
+      top: 40px;
+      right: 40px;
+    }
+
+    &__modal-title {
+      font-size: $h2-size - 5px;
+    }
+
+    &__modal-description {
+      width: 90%;
+      margin-bottom: 30px;
+      font-size: $font-size + 7px;
+      line-height: $line-height + 7px;
+    }
+
+    &__modal-link {
+      margin-bottom: 40px;
+      font-size: $font-size + 10px;
+    }
+  }
+}

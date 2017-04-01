@@ -1,0 +1,520 @@
+//
+//
+// Styles for team block
+
+.team {
+  position: relative;
+  padding-top: 70px;
+  padding-bottom: 50px;
+  text-align: center;
+  background: #f7f7f7;
+  transition: padding 0.3s ease;
+
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  &__inner {
+    @include container();
+  }
+
+  &__header {
+    margin: 0;
+    margin-bottom: 70px;
+
+    font-size: $h1-size - 5px;
+    line-height: $h1-line-height;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    text-transform: uppercase;
+    color: black;
+    transition: font-size 0.3s ease, margin 0.3s ease;
+  }
+
+  &__members-wrap {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 280px;
+    height: 246px;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: margin 0.3s ease, width 0.3s ease;
+  }
+
+  &__member {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    //transition: width 0.3s ease, margin 0.3s ease;
+  }
+
+  &__member img {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__member-info {
+    position: absolute;
+    top: 150px;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: 0 auto;
+    text-align: left;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.4);
+    transition: 0.9s;
+  }
+
+  &__member:hover &__member-info {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  &__member-name {
+    margin: 0;
+    margin-bottom: 5px;
+
+    font-size: $font-size + 1px;
+    line-height: $line-height - 7px;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    color: #7bb9dd;
+  }
+
+  &__member-position {
+    position: relative;
+    margin: 0;
+    margin-bottom: 20px;
+
+    font-size: $font-size;
+    line-height: $line-height - 7px;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    color: #eaeaea;
+  }
+
+  &__member-position::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+    width: 20%;
+    height: 1px;
+    background: #7bb9dd;
+  }
+
+  &__member-resume {
+    margin: 0;
+    margin-bottom: 1px;
+
+    font-size: $font-size;
+    line-height: $line-height - 3px;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    color: white;
+    white-space: normal;
+    opacity: 0;
+  }
+
+  &__member-more {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    font-size: $font-size;
+    line-height: $line-height - 3px;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    border-bottom: 1px dotted white;
+    color: white;
+    opacity: 1;
+  }
+
+  &__description {
+    margin: 0;
+    margin-bottom: 20px;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    color: black;
+    transition: margin 0.3s ease, width 0.3s ease, font-size 0.3s ease;
+  }
+
+  &__rate {
+    display: block;
+    width: 60%;
+    padding: 5px 15px;
+    margin: 0 auto;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    text-transform: uppercase;
+
+    border: 1px solid #557fc4;
+    color: #557fc4;
+  }
+
+  &__arrows {
+    @include clearfix();
+    margin-bottom: 10px
+  }
+
+  &__arrow-wrap {
+    display: block;
+    margin-bottom: 10px;
+    width: 70px;
+    height: 60px;
+    z-index: 9;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__arrow-wrap--left {
+    float: left;
+    padding-left: 20%;
+  }
+
+  &__arrow-wrap--right {
+    float: right;
+    padding-right: 20%;
+  }
+
+  &__arrow {
+    fill: #68cfff;
+  }
+
+  &__arrow-wrap:hover .team__arrow {
+    fill: $blue-color;
+  }
+
+  &__arrow-wrap:active .team__arrow {
+    fill: #a7dcf5;
+  }
+
+  &__modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  &__modal-close {
+    position: fixed;
+    z-index: 11;
+    top: 15px;
+    right: 11px;
+    cursor: pointer;
+  }
+
+  &__modal-content {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 1%;
+  }
+
+  &__modal-text {
+    margin: inherit;
+  }
+
+  &__modal-name {
+    margin-bottom: 10px;
+
+    font-size: $h2-size - 15px;
+    line-height: $h1-line-height - 28;
+    font-family: $font-stack;
+    font-weight: $weight-medium;
+    text-transform: uppercase;
+    color: #7bb9dd;
+    text-align: left;
+  }
+
+  &__modal-position {
+    position: relative;
+    margin-bottom: 20px;
+
+    font-size: $font-size;
+    line-height: $line-height - 7px;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    color: #eaeaea;
+  }
+
+  &__modal-position::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: -5px;
+    width: 40px;
+    height: 1px;
+    background: #7bb9dd;
+  }
+
+  &__modal-info {
+    width: 90%;
+    margin-bottom: 20px;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    color: white;
+    text-align: left;
+  }
+
+  &__modal-photo {
+    width: 90%;
+    height: auto;
+    margin: inherit;
+    margin-bottom: 10px;
+  }
+}
+
+
+@media (min-width: $screen_md) {
+  .team {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    transition: padding 0.3s ease;
+
+    &__inner {
+      @include container--tablet();
+    }
+
+    &__header {
+      margin-bottom: 80px;
+      font-size: $h1-size;
+      transition: font-size 0.3s ease, margin 0.3s ease;
+    }
+
+    &__members-wrap {
+      margin-bottom: 50px;
+    }
+
+    &__member-name {
+      font-size: $font-size + 2px;
+      line-height: $line-height - 6px;
+    }
+
+    &__member-position {
+      font-size: $font-size + 1px;
+      line-height: $line-height;
+    }
+
+    &__member-resume {
+      font-size: $font-size + 1px;
+    }
+
+    &__description {
+      width: 500px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+
+      font-size: $font-size + 2px;
+      line-height: $line-height + 3px;
+      transition: margin 0.3s ease, width 0.3s ease, font-size 0.3s ease;
+    }
+
+    &__rate {
+      padding: 10px 15px;
+
+      font-size: $font-size + 10px;
+      line-height: $line-height;
+      transition: padding 0.3s ease, font-size 0.3s ease;
+    }
+
+    &__arrows {
+      margin-bottom: 0;
+    }
+
+    &__arrow-wrap {
+      position: absolute;
+      bottom: 56%;
+    }
+
+    &__arrow-wrap--left {
+      float: none;
+      padding-left: 0;
+      left: 3%;
+    }
+
+    &__arrow-wrap--right {
+      float: none;
+      padding-right: 0;
+      right: 3%;
+    }
+
+    &__modal-photo {
+      width: 48%;
+      float: left;
+    }
+
+    &__modal-text {
+      width: 48%;
+      float: left;
+      margin: inherit;
+    }
+
+    &__modal-close {
+      right: 22px;
+    }
+  }
+}
+
+@media (min-width: $screen_md-extra) {
+  .team {
+    &__members-wrap {
+      width: 560px;
+    }
+
+    &__member {
+      width: 49%;
+    }
+
+    &__arrow-wrap--left {
+      left: 1%;
+    }
+
+    &__arrow-wrap--right {
+      right: 1%;
+    }
+  }
+}
+
+@media (min-width: $screen_lg) {
+  .team {
+    padding-top: 110px;
+    padding-bottom: 110px;
+    transition: padding 0.3s ease;
+
+    &__inner {
+      @include container--desktop();
+    }
+
+    &__header {
+      margin-bottom: 110px;
+    }
+
+    &__members-wrap {
+      width: 660px;
+      height: 290px;
+      margin-bottom: 60px;
+    }
+
+    &__member-name {
+      font-size: $font-size + 3px;
+    }
+
+    &__member-position {
+      font-size: $font-size + 2px;
+    }
+
+    &__member-resume {
+      font-size: $font-size + 2px;
+      line-height: $line-height;
+    }
+
+    &__member-info {
+      top: 190px;
+    }
+
+    &__description {
+      width: 640px;
+      margin-bottom: 60px;
+    }
+
+    &__rate {
+      width: 40%;
+      padding: 15px 0;
+
+      font-size: $font-size + 15px;
+      transition: padding 0.3s ease, width 0.3s ease, font-size 0.3s ease;
+    }
+
+    &__arrow-wrap--left {
+      left: 3%;
+    }
+
+    &__arrow-wrap--right {
+      right: 3%;
+    }
+  }
+}
+
+@media (min-width: $screen_xl) {
+  .team {
+
+    &__members-wrap {
+      width: 960px;
+      height: 275px;
+    }
+
+    &__member {
+      width: 32%;
+    }
+
+    &__member-info {
+      top: 170px;
+    }
+
+    &__description {
+      width: 940px;
+    }
+
+    &__arrow-wrap--left {
+      left: 50px;
+    }
+
+    &__arrow-wrap--right {
+      right: 4%;
+    }
+
+    &__arrow-wrap {
+      bottom: 54%;
+    }
+  }
+}
+
+@media (min-width: $screen_xl-extra) {
+  .team {
+    &__members-wrap {
+      width: 1350px;
+      height: 300px;
+    }
+
+    &__member {
+      width: 24.4%;
+      margin-left: 0.3%;
+      margin-right: 0.3%;
+    }
+
+    &__member-info {
+      top: 190px;
+    }
+
+    &__modal-text {
+      width: 45%;
+    }
+  }
+}

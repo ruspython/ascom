@@ -1,0 +1,39 @@
+//
+//
+// Base styles
+
+body {
+  min-width: 320px;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-family: $font-stack;
+}
+
+.main-section {
+  overflow: hidden;
+}
+
+section {
+  z-index: 6;
+}
+
+select {
+  cursor: pointer;
+  height: 25px;
+  display: inline;
+  box-sizing: border-box;
+  border: 1px solid #fff000;
+  background-color: #fff000;
+  margin-top: 26px;
+
+  &:hover {
+    box-shadow: 1px 1px 2px 0 #d6ae00;
+    transition: box-shadow .2s,transform .3s;
+  }
+}
+
+.hidden {
+  display: none;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+}

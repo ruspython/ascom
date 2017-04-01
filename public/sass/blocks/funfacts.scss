@@ -1,0 +1,264 @@
+//
+//
+// Styles for funfacts block
+
+.funfacts {
+  position: relative;
+  font-size: 0;
+  z-index: 7;
+
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    height: 50px;
+    width: 100%;
+    background-image: url('../images/triangle-white.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 50px;
+    transition: height 0.3s ease, background-size 0.3s ease;
+  }
+
+  &__left-column,
+  &__right-column {
+    position: relative;
+    z-index: 8;
+
+    padding-top: 140px;
+    padding-bottom: 50px;
+    width: 50%;
+    display: inline-block;
+    font-size: 0;
+    vertical-align: middle;
+    text-align: right;
+    background: #4ebe03;
+    transition: padding 0.3s ease;
+  }
+
+  &__right-column {
+    text-align: left;
+    background: #4972cf;
+  }
+
+  &__left-column::after,
+  &__right-column::after {
+    content: "";
+    position: absolute;
+    bottom: -49px;
+    right: 0;
+    left: 0;
+    z-index: 8;
+    height: 50px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 50px;
+  }
+
+  &__left-column::after {
+    background-image: url('../images/triangle-green.svg');
+  }
+
+  &__right-column::after {
+    background-image: url('../images/triangle-blue.svg');
+    }
+
+  &__clients,
+  &__awards,
+  &__projects,
+  &__years {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  &__clients {
+    padding-right: 30%;
+    margin-bottom: 90px;
+  }
+
+  &__awards {
+    padding-left: 30%;
+    margin-bottom: 90px;
+  }
+
+  &__clients-number,
+  &__awards-number,
+  &__projects-number,
+  &__years-number {
+    position: relative;
+    margin-bottom: 5px;
+
+    font-size: $h1-size - 15px;
+    line-height: $h1-line-height - 15px;
+    font-family: $font-stack;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  &__clients-number::before,
+  &__awards-number::before,
+  &__projects-number::before,
+  &__years-number::before {
+    content: '';
+    position: absolute;
+    margin: auto;
+    top: -60px;
+    left: 0;
+    right: 0;
+
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+    width: 42px;
+    height: 48px;
+    background-size: 42px 48px;
+    background-image: url('../images/icon-facts-calendar.png'); // img 60x68
+  }
+
+  &__clients-number::before {
+    width: 70px;
+    height: 44px;
+    background-size: 70px 44px;
+    background-image: url('../images/icon-facts-clients.png'); // img 90x56
+  }
+
+  &__awards-number::before {
+    top: -65px;
+    width: 58px;
+    height: 52px;
+    background-size: 58px 52px;
+    background-image: url('../images/icon-facts-ward.png'); // img 79x71
+  }
+
+  &__projects-number::before {
+    width: 55px;
+    height: 55px;
+    background-size: 55px 55px;
+    background-image: url('../images/icon-facts-projects.png'); // img 74x74
+  }
+
+  &__clients-text,
+  &__awards-text,
+  &__projects-text,
+  &__years-text {
+    margin-bottom: 5px;
+    height: 42px;
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-stack;
+    font-weight: $weight-light;
+    text-transform: uppercase;
+    color: white;
+  }
+}
+
+@media (min-width: $screen_md) {
+  .funfacts {
+
+    &__left-column,
+    &__right-column {
+      padding-top: 160px;
+      padding-bottom: 60px;
+      // font-size: 0;
+      // vertical-align: middle;
+      transition: padding 0.3s ease;
+    }
+
+    &__clients {
+      padding-right: 40%;
+      margin-bottom: 70px;
+    }
+
+    &__awards {
+      padding-left: 40%;
+      margin-bottom: 70px;
+    }
+
+    &__projects {
+      margin-top: -50px;
+      padding-left: 50%;
+    }
+
+    &__years {
+      margin-top: -50px;
+      padding-right: 50%;
+    }
+
+    &__clients-number,
+    &__awards-number,
+    &__projects-number,
+    &__years-number {
+      margin-bottom: 5px;
+
+      font-size: $h1-size - 10px;
+      line-height: $h1-line-height - 10px;
+    }
+
+    &__clients-text,
+    &__awards-text,
+    &__projects-text,
+    &__years-text {
+      font-size: $font-size;
+      line-height: $line-height;
+    }
+  }
+}
+
+@media (min-width: $screen_lg) {
+  .funfacts {
+
+    &::before {
+      height: 65px;
+      background-size: 100% 65px;
+      transition: height 0.3s ease, background-size 0.3s ease;
+    }
+
+    &__left-column,
+    &__right-column {
+      padding-top: 190px;
+      padding-bottom: 90px;
+      transition: padding 0.3s ease;
+    }
+
+    &__clients,
+    &__awards {
+      padding-right: 20%;
+    }
+
+    &__projects,
+    &__years {
+      margin-top: -105px;
+    }
+
+    &__clients-number,
+    &__awards-number,
+    &__projects-number,
+    &__years-number {
+      margin-bottom: 10px;
+      font-size: $h1-size - 5px;
+    }
+
+    &__clients-number::before,
+    &__awards-number::before,
+    &__projects-number::before,
+    &__years-number::before {
+      top: -70px;
+    }
+
+    &__clients-text,
+    &__awards-text,
+    &__projects-text,
+    &__years-text {
+      font-size: $font-size + 4px;
+    }
+  }
+}
