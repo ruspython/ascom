@@ -43,75 +43,56 @@ exports = module.exports = function (req, res) {
   var sent = true;
   var body = req.body;
 
-  // Load recievers emails from 'Company' model
-  return Company.model.findOne().exec().then(function (company) {
-    var recieversList = company.emails;
-        recieversList = recieversList.split(' ');
+  if (!validateForm(body)) {
+    return res.status(400).json({
+      sent: false
+    });
+  }
 
-    var recieversEmails = recieversList.join(', ');
+  var time = (new Date()).toString();
 
-    if (!validateForm(body)) {
-      return res.status(400).json({
-        sent: false
-      });
+  var mailOptions = {
+    from: process.env.MAIL_NO_REPLY,                 // Sender address
+    to: process.env.SUPPORT_ADMIN_EMAIL,                             // Receivers addresses
+    subject: 'ascom-it.ru message from ' + body.name, // Subject line
+    html: '<p>Name: ' + body.name + '</p>' + '<p>' + 'Email: ' + body.email + '</p>' +'<p>' + 'Phone: ' + body.phone + '</p>' + '<p>' +'Was sent at ' + time + '</p>' + 'Message: ' + '<p>' + body.message + '</p>' // html body
+  };
+
+  transporter.sendMail(mailOptions, function(error, info) {
+    if (error) {
+      console.error(error);
+      sent = false;
+    } else {
+      console.log('Message sent:' + info.response);
     }
 
-    var time = (new Date()).toString();
-
-    // Options for nodemailer
-    // Sender address is taken from .env file
-    // Recievers list are taken from model 'Company'
-    var mailOptions = {
-      from: process.env.MAIL_NO_REPLY,                 // Sender address
-      to: recieversEmails,                             // Receivers addresses
-      subject: 'ascom-it.ru message from ' + body.name, // Subject line
-      html: '<p>Name: ' + body.name + '</p>' + '<p>' + 'Email: ' + body.email + '</p>' + '<p>' +'Was sent at ' + time + '</p>' + 'Message: ' + '<p>' + body.message + '</p>' // html body
-    };
-
-    transporter.sendMail(mailOptions, function(error, info) {
-      if (error) {
-        console.error(error);
-        sent = false;
-      } else {
-        console.log('Message sent:' + info.response);
-      }
-
-      res.json({
-        sent: sent
-      });
-    });
-
-      // Answering with autoreply email
-      var autoreplyMailOptions = {
-          from: process.env.SUPPORT_EMAIL,
-          to: body.email,
-          subject: 'Ascom support',
-          template: 'support-autoreply',
-          context: {
-              name: body.name
-          }
-      };
-
-      supportTransporter.use('compile', hbs({
-          viewEngine: 'express-handlebars',
-          viewPath: 'templates/emails/',
-          extName: '.hbs'
-      }));
-
-      supportTransporter.sendMail(autoreplyMailOptions, function(error, mail) {
-          if (error) {
-              console.error(error);
-          } else {
-              console.log('Support message sent:' + mail.response);
-          }
-      });
-
-
-  }, function (error) {
-    console.error(error);
-
-    res.status(500).json({
-      error: error
+    res.json({
+      sent: sent
     });
   });
+
+    // Answering with autoreply email
+    var autoreplyMailOptions = {
+        from: process.env.SUPPORT_EMAIL,
+        to: body.email,
+        subject: 'Ascom support',
+        template: 'support-autoreply',
+        context: {
+            name: body.name
+        }
+    };
+
+    supportTransporter.use('compile', hbs({
+        viewEngine: 'express-handlebars',
+        viewPath: 'templates/emails/',
+        extName: '.hbs'
+    }));
+
+    supportTransporter.sendMail(autoreplyMailOptions, function(error, mail) {
+        if (error) {
+            console.error(error);
+        } else {
+            console.log('Support message sent:' + mail.response);
+        }
+    });
 };
